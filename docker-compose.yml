@@ -2,7 +2,10 @@ version: "3"
 
 services:
   lab_trainspark:
-    image: jupyter/pyspark-notebook:399cbb986c6b
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    image: jupyter/pyspark-notebook:1.0.0
     container_name: train_spark
     volumes:
       - ./:/home/jovyan/work/mlops_spark
@@ -11,6 +14,5 @@ services:
     ports:
       - "8888:8888"
       - "4040:4040"
-
 networks:
   development:
