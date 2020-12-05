@@ -4,6 +4,7 @@ docs/*
 references/*
 src/*
 test/*
+docker/kaggle.json
 run.py
 
 
