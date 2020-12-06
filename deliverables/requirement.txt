@@ -1,0 +1,4 @@
+numpy==1.19.4
+pandas==1.1.4
+pyspark==3.0.1
+sasctl==1.5.4

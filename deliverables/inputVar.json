@@ -1,0 +1,86 @@
+[
+    {
+        "name": "CellName",
+        "length": 6,
+        "type": "string",
+        "level": "nominal"
+    },
+    {
+        "name": "hour",
+        "length": 2,
+        "type": "string",
+        "level": "nominal"
+    },
+    {
+        "name": "minutes",
+        "length": 2,
+        "type": "string",
+        "level": "nominal"
+    },
+    {
+        "name": "PRBUsageUL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "PRBUsageDL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "meanThr_DL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "meanThr_UL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "maxThr_DL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "maxThr_UL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "meanUE_DL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "meanUE_UL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "maxUE_DL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "maxUE_UL",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    },
+    {
+        "name": "Unusual",
+        "length": 8,
+        "type": "decimal",
+        "level": "interval"
+    }
+]

@@ -1,0 +1,16 @@
+{
+    "name": "pyspark_gbtClassifier",
+    "description": "A pyspark GBTClassifier for Network anomaly detection : Unusual = CellName + hour + minutes + PRBUsageUL + PRBUsageDL + meanThr_DL + meanThr_UL + maxThr_DL + maxThr_UL + meanUE_DL + meanUE_UL + maxUE_DL + maxUE_UL",
+    "function": "classification",
+    "scoreCodeType": "python",
+    "trainTable": " ",
+    "trainCodeType": "Python",
+    "algorithm": "Boosted Tree",
+    "targetVariable": "Unusual",
+    "targetEvent": 1,
+    "targetLevel": "BINARY",
+    "eventProbVar": "EM_EVENTPROBABILITY",
+    "modeler": "ivnard",
+    "tool": "Python 3",
+    "toolVersion": "3.8.6"
+}
