@@ -3,9 +3,9 @@ docs/*
 data/interim/*
 data/processed/*
 references/*
-src/*
-test/*
-docker/kaggle.json
+src_temp/*
+test_temp/*
+docker/jupyterlab/kaggle.json
 run.py
 
 

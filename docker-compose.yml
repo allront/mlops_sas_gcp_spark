@@ -3,8 +3,8 @@ version: "3"
 services:
   lab_trainspark:
     build:
-      context: ./docker
-      dockerfile: Dockerfile
+      context: ./docker/jupyterlab/
+      dockerfile: docker/jupyterlab/Dockerfile
     image: jupyter/pyspark-notebook:1.0.0
     container_name: train_spark
     volumes:
