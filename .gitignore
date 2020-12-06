@@ -1,5 +1,7 @@
 config/*
 docs/*
+data/interim/*
+data/processed/*
 references/*
 src/*
 test/*
