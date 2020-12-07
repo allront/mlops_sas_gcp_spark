@@ -5,7 +5,6 @@ data/processed/*
 env/*
 references/*
 src_temp/*
-test_temp/*
 test/*
 docker/jupyterlab/kaggle.json
 run.py
