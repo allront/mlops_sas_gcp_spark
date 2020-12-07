@@ -13,6 +13,8 @@ Author: Ivan Nardini (ivan.nardini@sas.com)
 """
 
 # Libraries ------------------------------------------------------------------------------------------------------------
+import logging
+import logging.config
 import argparse
 import yaml
 
@@ -190,47 +192,56 @@ def build_pipeline (pipeconfig: dict) -> pyspark.ml.Pipeline:
     pipeline = Pipeline(stages=[stageone, stagetwo, stagethree, stagefour, stagefive])
 
     return pipeline
+
 # Main -----------------------------------------------------------------------------------------------------------------
 
 def run_training (args):
 
     # Read configuration
+    logging.info('Read config file.')
     with open(args.configfile, "r") as cf:
-        config = yaml.load(cf)
+        config = yaml.load(cf, Loader=yaml.FullLoader)
     sparksession = config['sparksession']
     data = config['data']
     pipeline = config['pipeline']
     output = config['output']
 
     # Create a spark session
+    logging.info('Instantiate the {0} session'.format(sparksession['appName']))
     spark = SparkSession.builder \
         .master(sparksession['master']) \
         .appName(sparksession['appName']) \
         .getOrCreate()
 
     # Load Data
+    logging.info('Load train and test data')
     train_df = read_parquet(spark, data['train_datapath'])
     test_df = read_parquet(spark, data['test_datapath'])
 
     # Execute training
+    logging.info('Train {0} Pipeline'.format(pipeline['model']['method']))
     train_pipe = build_pipeline(pipeline)
     gbt_model = train_pipe.fit(train_df)
 
     # Evaluate
+    logging.info('Evaluate the model')
     predictions_test = gbt_model.transform(test_df)
-    metrics_df = metrics(predictions_test, 'Unusual', 'prediction')
+    metrics_df = metrics(spark, predictions_test, 'Unusual', 'prediction')
 
     # Save training data
-    predictions_test_fmt = predictions_test.withColumn('P_Unusual0', extract0_udf('probability')).withColumn(
-        'P_Unusual1', extract1_udf('probability')).select(output['columnschema'])
-    write_parquet(predictions_test, output['test_scored_path'])
-    # Save metrics
-    write_parquet(metrics_df, output['metrics_scored_path'])
-    # Save trained pipeline
-    save_pipeline(gbt_model, output['pipeline_path'])
+    logging.info('Save all the process outputs')
+    # predictions_test_fmt = predictions_test.withColumn('P_Unusual0', extract0_udf('probability')).withColumn(
+    #     'P_Unusual1', extract1_udf('probability')).select(output['columnschema'])
+    # write_parquet(predictions_test_fmt, output['test_scored_path'])
+    # # Save metrics
+    # write_parquet(metrics_df, output['metrics_scored_path'])
+    # # Save trained pipeline
+    # save_pipeline(gbt_model, output['pipeline_path'])
 
 if __name__ == "__main__":
+    # logging.config.fileConfig("../config/logging/local.conf")
+    logger = logging.getLogger(__name__)
     parser = argparse.ArgumentParser(description="Train Pyspark GBTClassifier")
-    parser.add_argument('--configfile', help='path to configuration yaml file')
+    parser.add_argument('--configfile', required=True, help='path to configuration yaml file')
     args = parser.parse_args()
     run_training(args)
