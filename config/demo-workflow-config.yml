@@ -1,0 +1,10 @@
+workflow:
+  build:
+    hostname: rusid1.rus.sas.com
+    username: russasdemo
+    password: Orion123
+    modelpath: "../model"
+  migrate:
+    authfile: '../../config/sas-gelsandbox-9d9428a3f3f7.json'
+    bucket_name: train-spark-dev
+    modelpath_gcp: model

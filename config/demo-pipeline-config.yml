@@ -2,9 +2,9 @@ sparksession:
   master: 'local[4]'
   appName: 'Anomaly Detection'
 data:
-  train_datapath: ../data/processed/ML-MATT-CompetitionQT1920_train_processed.parquet
-  test_datapath: ../data/processed/ML-MATT-CompetitionQT1920_test_processed.parquet
-  datatoscore_path: ../data/processed/ML-MATT-CompetitionQT1920_val_processed.parquet
+  train_datapath: ../../data/processed/ML-MATT-CompetitionQT1920_train_processed.parquet
+  test_datapath: ../../data/processed/ML-MATT-CompetitionQT1920_test_processed.parquet
+  datatoscore_path: ../../data/processed/ML-MATT-CompetitionQT1920_val_processed.parquet
 pipeline:
   variables:
     categoricals: ['hour', 'minutes']
@@ -26,10 +26,10 @@ output:
   showschema_score: ['CellName', 'features', 'rawPrediction', 'probability', 'prediction']
   columnschema_train: ['CellName', 'Unusual', 'hour', 'minutes', 'PRBUsageUL', 'PRBUsageDL', 'meanThr_DL', 'meanThr_UL', 'maxThr_DL', 'maxThr_UL', 'meanUE_DL', 'meanUE_UL', 'maxUE_DL', 'maxUE_UL', 'P_Unusual0', 'P_Unusual1']
   columnschema_score: ['CellName', 'hour', 'minutes', 'PRBUsageUL', 'PRBUsageDL', 'meanThr_DL', 'meanThr_UL', 'maxThr_DL', 'maxThr_UL', 'meanUE_DL', 'meanUE_UL', 'maxUE_DL', 'maxUE_UL', 'P_Unusual0', 'P_Unusual1']
-  test_scored_path: ../test/data/
-  metrics_scored_path: ../test/metrics/
-  pipeline_path: ../test/model/
-  datascored_path: ../test/scored
+  test_scored_path: ../../test/data/
+  metrics_scored_path: ../../test/metrics/
+  pipeline_path: ../../test/model/
+  datascored_path: .././test/scored
 
 
 

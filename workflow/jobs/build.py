@@ -30,6 +30,8 @@ from sasctl.services import model_repository as mr
 # Configfile path variable
 CONFIGPATH = "../../config/demo-workflow.yml"
 
+# Main -----------------------------------------------------------------------------------------------------------------
+
 if __name__ == '__main__':
 
     # User variables for Viya
@@ -46,10 +48,10 @@ if __name__ == '__main__':
 
     projname = args.project_name
     modelcontent = [args.train_script, args.configfile, args.score_script]
-    hostname = config['workflow']['hostname']
-    username = config['workflow']['username']
-    password = config['workflow']['password']
-    modelpath = config['workflow']['modelpath']
+    hostname = config['workflow']['build']['hostname']
+    username = config['workflow']['build']['username']
+    password = config['workflow']['build']['password']
+    modelpath = config['workflow']['build']['modelpath']
 
     # Start a Session to download model content
     with Session(hostname=hostname, username=username, password=password, verify_ssl=False):

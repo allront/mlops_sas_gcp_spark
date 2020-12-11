@@ -1,5 +1,0 @@
-workflow:
-  hostname: rusid1.rus.sas.com
-  username: russasdemo
-  password: Orion123
-  modelpath: "../model"
