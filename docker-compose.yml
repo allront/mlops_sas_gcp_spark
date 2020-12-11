@@ -4,7 +4,7 @@ services:
   lab_trainspark:
     build:
       context: ./docker/jupyterlab/
-      dockerfile: docker/jupyterlab/Dockerfile
+      dockerfile: Dockerfile
     image: jupyter/pyspark-notebook:1.0.0
     container_name: train_spark
     volumes:
