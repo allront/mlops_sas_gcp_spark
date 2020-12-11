@@ -1,5 +1,5 @@
 sparksession:
-  master: 'local[4]'
+  master: 'local[*]'
   appName: 'Anomaly Detection'
 data:
   train_datapath: gs://network-migrate/data/ML-MATT-CompetitionQT1920_train_processed.parquet

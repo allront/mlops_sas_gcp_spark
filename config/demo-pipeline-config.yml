@@ -29,7 +29,7 @@ output:
   test_scored_path: ../../test/data/
   metrics_scored_path: ../../test/metrics/
   pipeline_path: ../../test/model/
-  datascored_path: .././test/scored
+  datascored_path: .././test/scored/
 
 
 

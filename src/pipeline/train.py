@@ -243,7 +243,9 @@ def run_training (args):
     save_pipeline(gbt_model, output['pipeline_path'])
 
 if __name__ == "__main__":
-    logging.config.fileConfig("../../config/logging/local.conf")
+    #logging.config.fileConfig("../../config/logging/local.conf")
+    logging.basicConfig(format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                        datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
     logger = logging.getLogger(__name__)
     parser = argparse.ArgumentParser(description="Train Pyspark GBTClassifier")
     parser.add_argument('--configfile', required=True, help='path to configuration yaml file')
