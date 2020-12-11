@@ -13,22 +13,24 @@ Steps:
 
 Author: Ivan Nardini (ivan.nardini@sas.com)
 """
+import argparse
 import os
+import logging
+import logging.config
 import yaml
 from google.cloud import storage
 
 # Configfile path variable
-CONFIGPATH = "../../config/demo-workflow.yml"
-
+CONFIGPATH = "../../../config/demo-workflow-config.yml"
 
 # Helpers --------------------------------------------------------------------------------------------------------------
 
-def upload_file_bucket (bucket: str, remotefile: str, file: str) -> None:
+def upload_file_bucket (bucket: str, file: str, remotefile: str) -> None:
     '''
 
     :param bucket: Target Bucket Name
-    :param remotefile: The remote name file
     :param file: The file name to upload
+    :param remotefile: The remote name file
     :return: None
     '''
 
@@ -39,17 +41,33 @@ def upload_file_bucket (bucket: str, remotefile: str, file: str) -> None:
 
 # Main -----------------------------------------------------------------------------------------------------------------
 
+def run_migrate(args):
 
-if __name__ == '__main__':
-    # Configuration variables
+    # Read configuration
+    logging.info('Read config file.')
     with open(CONFIGPATH, "r") as cf:
         config = yaml.load(cf, Loader=yaml.FullLoader)
 
     # Set variables
+    logging.info('Set running variables')
+    bucketname = args.bucket_name
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = config['workflow']['migrate']['authfile']
     modelpath = config['workflow']['build']['modelpath']
-    bucket = config['workflow']['migrate']['bucket_name']
     modelpath_gcp = config['workflow']['migrate']['modelpath_gcp']
 
     for file in os.listdir(modelpath):
-        upload_file_bucket(bucket, f"{modelpath_gcp}/{file}", f"{modelpath}/{file}")
+        logging.info(f'Get {file}')
+        upload_file_bucket(bucketname, f"{modelpath}/{file}", f"{modelpath_gcp}/{file}")
+        logging.info(f'{file} uploaded in {modelpath_gcp}/{file}')
+
+
+if __name__ == '__main__':
+
+    # User variables for Viya
+    parser = argparse.ArgumentParser(description="Migrate artefact on GCP CLoud storage")
+    parser.add_argument('--bucket-name', default='network-migrate', help='The name of the model to deploy')
+    args = parser.parse_args()
+
+    logging.config.fileConfig("../../../config/logging/local.conf")
+    logger = logging.getLogger(__name__)
+    run_migrate(args)
