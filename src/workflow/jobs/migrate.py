@@ -21,7 +21,9 @@ import yaml
 from google.cloud import storage
 
 # Configfile path variable
-CONFIGPATH = "../../../config/demo-workflow-config.yml"
+# CONFIGPATH = "../../../config/demo-workflow-config.yml"
+# Run path
+CONFIGPATH = "./config/demo-workflow-config.yml"
 
 # Helpers --------------------------------------------------------------------------------------------------------------
 
@@ -68,6 +70,6 @@ if __name__ == '__main__':
     parser.add_argument('--bucket-name', default='network-migrate', help='The name of the model to deploy')
     args = parser.parse_args()
 
-    logging.config.fileConfig("../../../config/logging/local.conf")
-    logger = logging.getLogger(__name__)
+    #logging.config.fileConfig("../../../config/logging/local.conf")
+    #logger = logging.getLogger(__name__)
     run_migrate(args)

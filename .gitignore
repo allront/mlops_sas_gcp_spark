@@ -6,7 +6,6 @@ env/*
 references/*
 test/*
 docker/jupyterlab/kaggle.json
-run.py
 
 
 __pycache__/

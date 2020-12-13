@@ -30,7 +30,9 @@ from sasctl import Session, get
 from sasctl.services import model_repository as mr
 
 # Configfile path variable
-CONFIGPATH = "../../../config/demo-workflow-config.yml"
+# CONFIGPATH = "../../../config/demo-workflow-config.yml"
+# Run path
+CONFIGPATH = "./config/demo-workflow-config.yml"
 
 
 # Main -----------------------------------------------------------------------------------------------------------------
