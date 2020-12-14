@@ -33,6 +33,7 @@ Help()
    echo ""
 }
 
+help
 echo "$(date '+%x %r') INFO Execute run_demo.py"
 source ${VENV}
 sudo chmod +x ./run_demo.py
