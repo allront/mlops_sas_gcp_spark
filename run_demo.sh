@@ -14,9 +14,7 @@ PROCESS_STEP=${1}
 # From SAS Viya
 VENV=./env/bin/activate
 
-Help()
-{
-   # Display Help
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
    echo "run_demo.sh is a bash wrapper to execute build and migrate python scripts using SAS Workflow Manager"
    echo
    echo "Syntax"
@@ -31,9 +29,9 @@ Help()
    echo "run_demo.sh migrate [--bucket-name <name>]"
    echo "--bucket-name      bucket name on Google Cloud Platform"
    echo ""
-}
+   exit 0
+fi
 
-help
 echo "$(date '+%x %r') INFO Execute run_demo.py"
 source ${VENV}
 sudo chmod +x ./run_demo.py
