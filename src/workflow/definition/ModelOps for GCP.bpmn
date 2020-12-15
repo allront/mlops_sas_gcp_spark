@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:sasbpmn="http://www.sas.com/xml/schema/bpmn" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/Test">
+  <process id="WF7589CBB9-613A-45B1-8DF8-7E5FE4A2B1CD" name="ModelOps for GCP" isExecutable="true">
+    <extensionElements>
+      <sasbpmn:prompt id="WF2F2CE4BC-EDA1-4210-B7BA-577F6E2C34C8" name="Do you approve model to be moved to GCP" dataObjectRef="WFB3FD5B5D-D9BD-414A-A6EE-02B889E9B779"></sasbpmn:prompt>
+      <sasbpmn:promptValue id="WF20D2CA3E-4AB6-48C1-948E-4FA0FC4051B3" name="Yes" value="true" type="xsd:boolean"></sasbpmn:promptValue>
+      <sasbpmn:promptValue id="WF5997E870-0906-4FC1-8580-606DA758B4F0" name="No" value="false" type="xsd:boolean"></sasbpmn:promptValue>
+    </extensionElements>
+    <dataObject id="WFB3FD5B5D-D9BD-414A-A6EE-02B889E9B779" name="ModelIsApproved" itemSubjectRef="xsd:boolean"></dataObject>
+    <dataObject id="WF35C23417-C832-4000-BA11-473B0C6DF813" name="ProjectName" itemSubjectRef="xsd:string">
+      <extensionElements>
+        <flowable:value></flowable:value>
+      </extensionElements>
+    </dataObject>
+    <dataObject id="WF297CD142-718D-43FE-B51E-8E3319D987D1" name="ProjectId" itemSubjectRef="xsd:string">
+      <extensionElements>
+        <flowable:value></flowable:value>
+      </extensionElements>
+    </dataObject>
+    <dataObject id="WFCFD5025C-26ED-4E0C-9BEF-F45F3D1FFD8C" name="BuildImageJobPath" itemSubjectRef="xsd:string">
+      <extensionElements>
+        <flowable:value>/Projects/ModelOpsGCP/run_build</flowable:value>
+      </extensionElements>
+    </dataObject>
+    <dataObject id="WFFA09DCAC-3188-4F76-9620-6AF2583EBF58" name="MigrateJobPath" itemSubjectRef="xsd:string">
+      <extensionElements>
+        <flowable:value>/Projects/ModelOpsGCP/run_migrate</flowable:value>
+      </extensionElements>
+    </dataObject>
+    <sequenceFlow id="WF590FDE65-7E5F-4F04-98CD-58EFF04D2555" sourceRef="WFEF0958E1-A02C-47BE-B1E9-F6F4F078D4BE" targetRef="WFB7F72525-A679-4DC5-B848-ACA77DF33A90"></sequenceFlow>
+    <sequenceFlow id="WFCC3F9BC0-C369-4678-9916-566F477B8DF3" sourceRef="WFB7F72525-A679-4DC5-B848-ACA77DF33A90" targetRef="WFCB312D11-6682-4058-B7EA-2ADECDA3B46F"></sequenceFlow>
+    <sequenceFlow id="WFAB340CCB-C4BA-4530-8E99-A271B6856431" sourceRef="WF9A22E0E2-0F02-478F-8F27-648D38AD166D" targetRef="WF218C68B3-1EFA-4C65-89D2-15A2531B11EE"></sequenceFlow>
+    <sequenceFlow id="WF872ABD18-3203-4242-B3CB-B3D1970FB6A5" sourceRef="WF218C68B3-1EFA-4C65-89D2-15A2531B11EE" targetRef="WF43528A8C-704A-48A7-A909-0E32DBFF6425"></sequenceFlow>
+    <sequenceFlow id="WF68CA0E6B-C074-4C0F-8205-06C1C1431446" sourceRef="WFCB312D11-6682-4058-B7EA-2ADECDA3B46F" targetRef="WF4ECF8B17-2E59-4762-AB38-C998D83846B0"></sequenceFlow>
+    <sequenceFlow id="WFA1CA47A1-C286-412A-B0D2-718F1B349B8E" name="Model is approved" sourceRef="WF4ECF8B17-2E59-4762-AB38-C998D83846B0" targetRef="WF9A22E0E2-0F02-478F-8F27-648D38AD166D">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${ModelIsApproved=='True'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="WFC1B03EF0-DF58-41AD-B5BE-8F2DDB683119" name="Model is not approved" sourceRef="WF4ECF8B17-2E59-4762-AB38-C998D83846B0" targetRef="WFDCC5578A-CA7D-4AFA-9AE2-081345D03491">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${ModelIsApproved=='False'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="WF23D55A63-5ED5-4FA2-A341-05EC18BCBD6A" sourceRef="WF43528A8C-704A-48A7-A909-0E32DBFF6425" targetRef="WFE61F7177-4FD1-46DE-98D2-CA21A3679B28"></sequenceFlow>
+    <sequenceFlow id="WFA0C3D1A5-C136-423C-B996-B1A2BE527961" sourceRef="WFE61F7177-4FD1-46DE-98D2-CA21A3679B28" targetRef="WF4B77ED99-5565-4E53-A85C-81A8BBDE8AE7"></sequenceFlow>
+    <sequenceFlow id="WF196513CB-C4E4-4ABB-83E3-CCE1EE6A084E" sourceRef="WFDCC5578A-CA7D-4AFA-9AE2-081345D03491" targetRef="WF4B77ED99-5565-4E53-A85C-81A8BBDE8AE7"></sequenceFlow>
+    <endEvent id="WF4B77ED99-5565-4E53-A85C-81A8BBDE8AE7" name="End"></endEvent>
+    <startEvent id="WFEF0958E1-A02C-47BE-B1E9-F6F4F078D4BE" name="Start"></startEvent>
+    <userTask id="WFCB312D11-6682-4058-B7EA-2ADECDA3B46F" name="[Validator] Approve model champion">
+      <extensionElements>
+        <sasbpmn:promptDefinition promptRef="WF2F2CE4BC-EDA1-4210-B7BA-577F6E2C34C8" required="false">
+          <sasbpmn:promptValueDefinition promptValueRef="WF20D2CA3E-4AB6-48C1-948E-4FA0FC4051B3"></sasbpmn:promptValueDefinition>
+          <sasbpmn:promptValueDefinition promptValueRef="WF5997E870-0906-4FC1-8580-606DA758B4F0"></sasbpmn:promptValueDefinition>
+        </sasbpmn:promptDefinition>
+      </extensionElements>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>group(ApplicationAdministrators)</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <serviceTask id="WFB7F72525-A679-4DC5-B848-ACA77DF33A90" name="Get project metadata" flowable:delegateExpression="${restTask}">
+      <extensionElements>
+        <flowable:field name="url">
+          <flowable:expression><![CDATA[/modelRepository/projects?name=${ProjectName}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="method">
+          <flowable:string><![CDATA[GET]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="statusCode">
+          <flowable:string><![CDATA[200]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="bodyType">
+          <flowable:string><![CDATA[EMPTY]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="headers">
+          <flowable:string><![CDATA[{"Accept":"application/vnd.sas.collection+json"}]]></flowable:string>
+        </flowable:field>
+        <flowable:executionListener event="end" delegateExpression="${jsonPathListener}">
+          <flowable:field name="json">
+            <flowable:expression><![CDATA[${responseBody}]]></flowable:expression>
+          </flowable:field>
+          <flowable:field name="outputDataObjectName">
+            <flowable:string><![CDATA[ProjectId]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="jsonPath">
+            <flowable:string><![CDATA[$.items[-1].id]]></flowable:string>
+          </flowable:field>
+        </flowable:executionListener>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="WF9A22E0E2-0F02-478F-8F27-648D38AD166D" name="Build Model Contents" flowable:delegateExpression="${restTask}">
+      <extensionElements>
+        <flowable:field name="url">
+          <flowable:expression><![CDATA[/SASJobExecution/?_program=${BuildImageJobPath}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="method">
+          <flowable:string><![CDATA[POST]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="statusCode">
+          <flowable:string><![CDATA[200]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="bodyType">
+          <flowable:string><![CDATA[EMPTY]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="headers">
+          <flowable:string><![CDATA[{"Accept":"application/json"}]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <userTask id="WF218C68B3-1EFA-4C65-89D2-15A2531B11EE" name="[IT] Provide GCP cluster cridentials">
+      <extensionElements>
+        <flowable:customResource name="ExcludedOwner">
+          <resourceAssignmentExpression>
+            <formalExpression>user(astana)</formalExpression>
+          </resourceAssignmentExpression>
+        </flowable:customResource>
+      </extensionElements>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>user(rusarg)</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <serviceTask id="WF43528A8C-704A-48A7-A909-0E32DBFF6425" name="Migrate to GCP" flowable:delegateExpression="${restTask}">
+      <extensionElements>
+        <flowable:field name="url">
+          <flowable:expression><![CDATA[/SASJobExecution/?_program=${MigrateJobPath}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="method">
+          <flowable:string><![CDATA[POST]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="statusCode">
+          <flowable:string><![CDATA[200]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="bodyType">
+          <flowable:string><![CDATA[EMPTY]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="headers">
+          <flowable:string><![CDATA[{"Accept":"application/json"}]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <exclusiveGateway id="WF4ECF8B17-2E59-4762-AB38-C998D83846B0" name="Exclusive Gateway"></exclusiveGateway>
+    <serviceTask id="WFE61F7177-4FD1-46DE-98D2-CA21A3679B28" name="[Notification] Model was successfuly migrated to GCP" flowable:delegateExpression="${mailTask}">
+      <extensionElements>
+        <flowable:field name="to">
+          <flowable:string><![CDATA[rusarg]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="subject">
+          <flowable:string><![CDATA[Notification from workflow process: Model was SUCCESSFULLY migrated]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="message">
+          <flowable:string><![CDATA[Hello,
+We have good news: the model submitted for migration to Google Cloud Platform was successfully moved to the GCP.]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="WFDCC5578A-CA7D-4AFA-9AE2-081345D03491" name="[Notification] Model is not approved" flowable:delegateExpression="${mailTask}">
+      <extensionElements>
+        <flowable:field name="to">
+          <flowable:string><![CDATA[rusarg]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="subject">
+          <flowable:string><![CDATA[Notification from workflow process: Model was NOT APPROVED for migration]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="message">
+          <flowable:string><![CDATA[Hello,
+The model submitted for migration to the Google Cloud Platform was NOT approved by validation team and thus, was not moved to the GCP.]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_WF7589CBB9-613A-45B1-8DF8-7E5FE4A2B1CD">
+    <bpmndi:BPMNPlane bpmnElement="WF7589CBB9-613A-45B1-8DF8-7E5FE4A2B1CD" id="BPMNPlane_WF7589CBB9-613A-45B1-8DF8-7E5FE4A2B1CD">
+      <bpmndi:BPMNShape bpmnElement="WF4B77ED99-5565-4E53-A85C-81A8BBDE8AE7" id="BPMNShape_WF4B77ED99-5565-4E53-A85C-81A8BBDE8AE7">
+        <omgdc:Bounds height="16.0" width="16.0" x="360.0" y="240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WFEF0958E1-A02C-47BE-B1E9-F6F4F078D4BE" id="BPMNShape_WFEF0958E1-A02C-47BE-B1E9-F6F4F078D4BE">
+        <omgdc:Bounds height="16.0" width="16.0" x="-120.0" y="-370.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WFCB312D11-6682-4058-B7EA-2ADECDA3B46F" id="BPMNShape_WFCB312D11-6682-4058-B7EA-2ADECDA3B46F">
+        <omgdc:Bounds height="80.0" width="120.0" x="30.0" y="-240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WFB7F72525-A679-4DC5-B848-ACA77DF33A90" id="BPMNShape_WFB7F72525-A679-4DC5-B848-ACA77DF33A90">
+        <omgdc:Bounds height="80.0" width="120.0" x="30.0" y="-350.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WF9A22E0E2-0F02-478F-8F27-648D38AD166D" id="BPMNShape_WF9A22E0E2-0F02-478F-8F27-648D38AD166D">
+        <omgdc:Bounds height="80.0" width="120.0" x="160.0" y="-110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WF218C68B3-1EFA-4C65-89D2-15A2531B11EE" id="BPMNShape_WF218C68B3-1EFA-4C65-89D2-15A2531B11EE">
+        <omgdc:Bounds height="80.0" width="120.0" x="160.0" y="0.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WF43528A8C-704A-48A7-A909-0E32DBFF6425" id="BPMNShape_WF43528A8C-704A-48A7-A909-0E32DBFF6425">
+        <omgdc:Bounds height="80.0" width="120.0" x="160.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WF4ECF8B17-2E59-4762-AB38-C998D83846B0" id="BPMNShape_WF4ECF8B17-2E59-4762-AB38-C998D83846B0">
+        <omgdc:Bounds height="16.0" width="16.0" x="170.0" y="-240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WFE61F7177-4FD1-46DE-98D2-CA21A3679B28" id="BPMNShape_WFE61F7177-4FD1-46DE-98D2-CA21A3679B28">
+        <omgdc:Bounds height="80.0" width="120.0" x="160.0" y="260.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WFDCC5578A-CA7D-4AFA-9AE2-081345D03491" id="BPMNShape_WFDCC5578A-CA7D-4AFA-9AE2-081345D03491">
+        <omgdc:Bounds height="80.0" width="120.0" x="380.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="WF590FDE65-7E5F-4F04-98CD-58EFF04D2555" id="BPMNEdge_WF590FDE65-7E5F-4F04-98CD-58EFF04D2555">
+        <omgdi:waypoint x="-80.0" y="-350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="-50.0" y="-350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="-50.0" y="-350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="-50.0" y="-350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="-50.0" y="-350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="-30.0" y="-350.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WFCC3F9BC0-C369-4678-9916-566F477B8DF3" id="BPMNEdge_WFCC3F9BC0-C369-4678-9916-566F477B8DF3">
+        <omgdi:waypoint x="30.0" y="-310.0"></omgdi:waypoint>
+        <omgdi:waypoint x="30.0" y="-280.0"></omgdi:waypoint>
+        <omgdi:waypoint x="30.0" y="-280.0"></omgdi:waypoint>
+        <omgdi:waypoint x="30.0" y="-300.0"></omgdi:waypoint>
+        <omgdi:waypoint x="30.0" y="-300.0"></omgdi:waypoint>
+        <omgdi:waypoint x="30.0" y="-280.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WFAB340CCB-C4BA-4530-8E99-A271B6856431" id="BPMNEdge_WFAB340CCB-C4BA-4530-8E99-A271B6856431">
+        <omgdi:waypoint x="160.0" y="-70.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="-40.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="-40.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="-60.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="-60.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="-40.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WF872ABD18-3203-4242-B3CB-B3D1970FB6A5" id="BPMNEdge_WF872ABD18-3203-4242-B3CB-B3D1970FB6A5">
+        <omgdi:waypoint x="160.0" y="40.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="70.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="75.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="75.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="100.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WF68CA0E6B-C074-4C0F-8205-06C1C1431446" id="BPMNEdge_WF68CA0E6B-C074-4C0F-8205-06C1C1431446">
+        <omgdi:waypoint x="90.0" y="-240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="-240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="-240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="118.0" y="-240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="118.0" y="-240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="138.0" y="-240.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WFA1CA47A1-C286-412A-B0D2-718F1B349B8E" id="BPMNEdge_WFA1CA47A1-C286-412A-B0D2-718F1B349B8E">
+        <omgdi:waypoint x="159.0" y="-208.0"></omgdi:waypoint>
+        <omgdi:waypoint x="159.0" y="-170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="159.0" y="-170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="159.0" y="-170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="-170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="-150.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WFC1B03EF0-DF58-41AD-B5BE-8F2DDB683119" id="BPMNEdge_WFC1B03EF0-DF58-41AD-B5BE-8F2DDB683119">
+        <omgdi:waypoint x="201.0" y="-241.0"></omgdi:waypoint>
+        <omgdi:waypoint x="231.0" y="-241.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="-241.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="-80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="100.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WF23D55A63-5ED5-4FA2-A341-05EC18BCBD6A" id="BPMNEdge_WF23D55A63-5ED5-4FA2-A341-05EC18BCBD6A">
+        <omgdi:waypoint x="160.0" y="180.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="210.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="210.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="200.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="200.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="220.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WFA0C3D1A5-C136-423C-B996-B1A2BE527961" id="BPMNEdge_WFA0C3D1A5-C136-423C-B996-B1A2BE527961">
+        <omgdi:waypoint x="220.0" y="260.0"></omgdi:waypoint>
+        <omgdi:waypoint x="250.0" y="260.0"></omgdi:waypoint>
+        <omgdi:waypoint x="295.0" y="260.0"></omgdi:waypoint>
+        <omgdi:waypoint x="295.0" y="260.0"></omgdi:waypoint>
+        <omgdi:waypoint x="340.0" y="260.0"></omgdi:waypoint>
+        <omgdi:waypoint x="360.0" y="260.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="WF196513CB-C4E4-4ABB-83E3-CCE1EE6A084E" id="BPMNEdge_WF196513CB-C4E4-4ABB-83E3-CCE1EE6A084E">
+        <omgdi:waypoint x="380.0" y="180.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="210.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="215.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="215.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="240.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

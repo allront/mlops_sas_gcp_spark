@@ -33,6 +33,8 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
 fi
 
 echo "$(date '+%x %r') INFO Execute run_demo.py"
+# On Viya server, for Job execution
+cd cd /opt/demos/mlops_sas_gcp_spark/
 source ${VENV}
-sudo chmod +x ./run_demo.py
+#sudo chmod +x ./run_demo.py
 python run_demo.py ${PROCESS_STEP}
