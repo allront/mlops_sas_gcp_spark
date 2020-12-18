@@ -70,7 +70,7 @@ run
     ```
 ### SAS Viya side
 
-1. Import [ModelOps for GCP.bpmn](src/workflow/definition/ModelOps for GCP.bpmn) in SAS Workflow Manager
+1. Import [ModelOps for GCP](src/workflow/definition/ModelOps for GCP.bpmn) in SAS Workflow Manager
 
 2. Import [run_build.sas](src/workflow/definition/run_build.sas) and [run_migrate.sas](src/workflow/definition/run_migrate.sas)
 jobs in SAS Job Execution
