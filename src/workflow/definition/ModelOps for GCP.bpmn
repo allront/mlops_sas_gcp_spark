@@ -2,6 +2,7 @@
     <process id="WF7589CBB9-613A-45B1-8DF8-7E5FE4A2B1CD" isExecutable="true" name="ModelOps for GCP">
         <extensionElements>
             <sasbpmn:prompt dataObjectRef="WFB3FD5B5D-D9BD-414A-A6EE-02B889E9B779" id="WF2F2CE4BC-EDA1-4210-B7BA-577F6E2C34C8" name="Do you approve model to be moved to GCP"/>
+            <sasbpmn:prompt dataObjectRef="WF60945AE8-0067-4836-92BD-EB2E617B106A" id="WFBF236A87-F23F-400E-8D5A-CE9480F693B6" name="Please provide Cloud Storage Bucket name to migrate"/>
             <sasbpmn:promptValue id="WF20D2CA3E-4AB6-48C1-948E-4FA0FC4051B3" name="Yes" type="xsd:boolean" value="true"/>
             <sasbpmn:promptValue id="WF5997E870-0906-4FC1-8580-606DA758B4F0" name="No" type="xsd:boolean" value="false"/>
         </extensionElements>
@@ -24,6 +25,11 @@
         <dataObject id="WFFA09DCAC-3188-4F76-9620-6AF2583EBF58" itemSubjectRef="xsd:string" name="MigrateJobPath">
             <extensionElements>
                 <flowable:value>/Projects/ModelOpsGCP/run_migrate</flowable:value>
+            </extensionElements>
+        </dataObject>
+        <dataObject id="WF60945AE8-0067-4836-92BD-EB2E617B106A" itemSubjectRef="xsd:string" name="BucketName">
+            <extensionElements>
+                <flowable:value/>
             </extensionElements>
         </dataObject>
         <sequenceFlow id="WF590FDE65-7E5F-4F04-98CD-58EFF04D2555" sourceRef="WFEF0958E1-A02C-47BE-B1E9-F6F4F078D4BE" targetRef="WFB7F72525-A679-4DC5-B848-ACA77DF33A90"/>
@@ -111,6 +117,7 @@
                         <formalExpression>user(astana)</formalExpression>
                     </resourceAssignmentExpression>
                 </flowable:customResource>
+                <sasbpmn:promptDefinition promptRef="WFBF236A87-F23F-400E-8D5A-CE9480F693B6" required="true"/>
             </extensionElements>
             <potentialOwner>
                 <resourceAssignmentExpression>
