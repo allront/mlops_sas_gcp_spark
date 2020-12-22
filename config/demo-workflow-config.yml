@@ -7,6 +7,6 @@ workflow:
     modelpath: "./src/workflow/model"
   migrate:
     #authfile: '../../../config/sas-gelsandbox-9d9428a3f3f7.json'
-    authfile: './config/sas-gelsandbox-9d9428a3f3f7.json'
+    authfile: './config/sas-ivnard-4e6677812b97.json'
     bucket_name: train-spark-dev
     modelpath_gcp: model
