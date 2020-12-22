@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     # Migrate subparser
     sb_migrate = subparsers.add_parser("migrate", description="Load Model content on Google Cloud Platform")
-    sb_migrate.add_argument('--bucket-name', default='network-migrate', help='The name of the model to deploy')
+    sb_migrate.add_argument('--bucket-name', default='network-spark-migrate', help='The name of the model to deploy')
     sb_migrate.set_defaults(func=run_migrate)
 
     args = parser.parse_args()

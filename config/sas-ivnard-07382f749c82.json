@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sas-ivnard",
+  "private_key_id": "07382f749c828b1b7f3aa0577074608a80cdde34",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD1rxCrQ8rfHGRZ\nhnQTmkMNuGmqfu3eUVgjfScrCOyuhzkRJrFOImiD1hEIfGODXkyzYbi0UkiYbpUv\n/koKng+ZtDC2kElK7NrRYDfZiBD4wuxIGRX7EhLihSQ7TN8PuuqgPpyh2gHu6SBB\npfGm5S+sbUdXqw7DncoMG1d6Gfh7Mcy+/1bcq6JM1Jf07xwIR/sASk5Y0s7/0n7B\n69Fr7ZjBDoMqUO0ZgLtbpRaewpjWgqdIX1xioe2ycLRnJJRrCungNiDEDEC6ON4R\n27JOc2mD5XjYlYo6dsPE8beyfXbCsR9F7/Du4t10rlg6W9whztbqCEyLEcFC954u\nTIlDzpMzAgMBAAECggEABvBh3SR2B2Uq5GhqwN77g9iwi1M4bq4HekEfqRSActF4\n6CYaneVU5FxYcM/qk5xHOE3LRLSKPlvpNMjO2IvsTuAK/C0JFOepqn44NZmlORFw\nUPz8ZPH2vJUcF9ys9CnIVKxQCjY5FcFZ2uDP+XHBrfIMMMqxCQ9c1Ii1KMqw/PG1\n9w4J/wybo8ZUpQLy1vvCFP6mKpsNjB+FgEdyjiPuHTqfthFddh8MSf751z444i96\nj+OLsPW2Lz4DkYFaJ+8VnLgIjoF7lNPEq3f7PCR+9qh6iv9VijuKxwnS6s54x5cQ\nZdRPbs+pNt01hMCtn0bOvPQTWuC7BDep26p47MrP6QKBgQD7D2VEC2UafVbhSEzb\niZwniu/tGJGp1L7EioEhFdtVUaukIxnyP0+SwD+Sjl9wVb/HMDRrETjAB60EiHga\nbU0eQ1uptOBVUPt58XTCc9eCh4zNFgCZE10zv8Siwtlbh9hSD0GupqjOQUGs1ek1\ncYmiGRxH0RyISfNXVgBW4WX+tQKBgQD6hJa/RRciqFrw/bxpcSxND7yxBFazCx6R\nKvn+iOZiztoY4blTttqpf/nMyAu7mgVLyDaeRBP2oOraZUEPvAOQK1rpOTXdibFb\n7xNxSfsKXsHkZhLcvmSFkTHKTaI6M4nU+S0MDOGuCgNeFgCjGVJX1wh3YvP+EAT1\nM0F3OReTRwKBgQCg+YUftQK1kmozdq05EqnaPN6LsnYrY6qR0JDtSttggEZCrvMC\n/Y8i9DuO19Tf7UtTB1iE0f0GO6W3Q11m7HBHGD9cuAojChLEZIpN6ALlwc4I7bOi\ncuUOukX1amP9qUONkhS2TEvuO69Fh77JMqxiECGu9qiJxojNleoPyuQgBQKBgFKX\n+jdvaPRFO05u6Xp+FJQHlzdpbcgz500HNUrlCcgT2LYRXY+rHqZ5ifspDS0513sn\ntFIzsb1DSorcjTnJzAbxNFTmRssWhYIA7ZERShIeMaDCwn9CylN7DkZbmBvGODAe\nQurRKGq/5GJVsLoVNB+/xovN9RGTaH8K+g97pDkrAoGAdUITTjtKwaSVi62altOo\nvEDDlga6nz8PWNtrLGMsq05hVxj3JESXXxyQ2SXCnLCi27zya//D5ny6AUzFsCz2\nX0U42iL0VJX4VhnGvW5MUDHInar+zXU2vCYs25RlbaPQ5EQCdzaxy0yfhyLj36yX\naYWj4TwJJxaAEjcpLBd9MBo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "ivnard@sas-ivnard.iam.gserviceaccount.com",
+  "client_id": "112891311094625235959",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ivnard%40sas-ivnard.iam.gserviceaccount.com"
+}

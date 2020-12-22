@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     # User variables for Viya
     parser = argparse.ArgumentParser(description="Migrate artefact on GCP CLoud storage")
-    parser.add_argument('--bucket-name', default='network-migrate', help='The name of the model to deploy')
+    parser.add_argument('--bucket-name', default='network-spark-migrate', help='The name of the model to deploy')
     args = parser.parse_args()
 
     #logging.config.fileConfig("../../../config/logging/local.conf")
